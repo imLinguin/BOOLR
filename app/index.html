@@ -226,14 +226,15 @@
             <div id="toast"></div>
 
             <div class="slot" tooltip="Input and output ports">I/O</div>
+            <div class="slot" tooltip="Memory related components"><i class="material-icons">memory</i></div>
             <div class="slot" tooltip="NOT gate" onmousedown="event.which == 3 ? dialog.truthTable(NOT) : select(NOT)">!</div>
             <div class="slot" tooltip="AND gate" onmousedown="event.which == 3 ? dialog.truthTable(AND) : select(AND)">&</div>
             <div class="slot" tooltip="OR gate" onmousedown="event.which == 3 ? dialog.truthTable(OR) : select(OR)">|</div>
             <div class="slot" tooltip="XOR gate" onmousedown="event.which == 3 ? dialog.truthTable(XOR) : select(XOR)">^</div>
-            <div class="slot" tooltip="Custom component" onmousedown="select(Custom)"><i class="material-icons">memory</i></div>
-            <div class="slot" tooltip="Saved components" onmousedown="dialog.savedCustomComponents()"><i class="material-icons">list</i></div>
+            <div class="slot" tooltip="Custom component" onmousedown="select(Custom)"><i class="material-icons">edit</i></div>
+            <div class="slot" tooltip="Saved components" onmousedown="dialog.savedCustomComponents()"><i class="material-icons">list-outline</i></div>
 
-            <ul id="list" tabindex="1" style="display: none">
+            <ul id="listIO" tabindex="1" style="display: none">
                 <li onclick="select(Input)">Input</li>
                 <li onclick="select(Output)">Output</li>
                 <li onclick="select(Button)">Button</li>
@@ -248,6 +249,11 @@
                 <li onclick="select(TimerStart)">TimerStart</li>
                 <li onclick="select(TimerEnd)">TimerEnd</li>
                 <li onclick="select(ROM)">ROM</li>
+            </ul>
+
+            <ul id="listMem" tabindex="1" style="display: none;">
+                <li onclick="select(DLATCH)">D-LATCH</li>
+                <li onclick="select(SRLATCH)">SR-LATCH</li>    
             </ul>
         </div>
         <div id="toolbartip"></div>

@@ -116,7 +116,7 @@
     margin-right: 5px;
 }
 
-#toolbar #list {
+#toolbar #listIO, #toolbar #listMem {
     position: absolute;
     left: 0;
     bottom: 50px;
@@ -135,25 +135,28 @@
     overflow-y: auto;
 
     opacity: 0;
-    transform: scale(.5) translateX(-63px) translateY(150px);
+    transform: scale(.5) translateY(150px);
     transition: opacity .2s, transform .2s;
 }
 
-#toolbar #list::-webkit-scrollbar-track {
+#toolbar #listIO::-webkit-scrollbar-track,
+#toolbar #listMem::-webkit-scrollbar-track{
     background: rgba(255,255,255,.1);
 }
 
-#toolbar #list::-webkit-scrollbar-thumb {
+#toolbar #listIO::-webkit-scrollbar-thumb,
+#toolbar #listMem::-webkit-scrollbar-thumb {
     background: rgba(255,255,255,.3);
     border-radius: 5px;
 }
 
-#toolbar #list li {
+#toolbar #listIO li,#toolbar #listMem li  {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#toolbar #list li:hover, #toolbar #list li:active {
+#toolbar #listIO li:hover, #toolbar #listIO li:active, 
+#toolbar #listMem li:hover, #toolbar #listMem li:active {
     background: #ddd;
 }
