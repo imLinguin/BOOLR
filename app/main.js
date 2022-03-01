@@ -13,12 +13,11 @@ function createWindow() {
     height: 800,
     icon: __dirname + "../build/icon.png",
     show: false,
-    webPreferences:{
-        nodeIntegration:true,
-        contextIsolation:false
-    }
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
-
   window.loadFile(path.join(__dirname, "index.html"));
 
   window.once("ready-to-show", () => {

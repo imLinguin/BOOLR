@@ -329,9 +329,14 @@ c.onmousedown = function(e) {
             return false;
         }
         else {
-            if(document.getElementById("list-IO").style.display != "none" || selecting) {
+            if(document.getElementById("listIO").style.display != "none" || selecting) {
                 contextMenu.hide();
-                document.getElementById("list-IO").hide();
+                document.getElementById("listIO").hide();
+                selecting = null;
+            }
+            else if(document.getElementById("listMem").style.display != "none" || selecting) {
+                contextMenu.hide();
+                document.getElementById("listMem").hide();
                 selecting = null;
             }
             else {

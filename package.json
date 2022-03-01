@@ -3,7 +3,8 @@
   "description": "A digital logic simulator",
   "version": "0.1.301",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build:linux": "electron-builder"
   },
   "author": {
     "name": "Gees Brouwer",
@@ -11,7 +12,18 @@
     "url": "http://ggbrw.nl"
   },
   "main": "app/main.js",
-  "dependencies": {
-    "electron": "^17.1.0"
+  "devDependencies": {
+    "electron": "^17.1.0",
+    "electron-builder": "^22.14.13"
+  },
+
+  "build": {
+    "linux": {
+      "target":[
+        "AppImage",
+        "tar.gz"
+      ],
+      "icon":"build/icon1.png"
+    }
   }
 }
