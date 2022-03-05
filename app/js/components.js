@@ -2920,8 +2920,8 @@ class SRLATCH extends Component {
 
   function() {
     let q = this.output[0].value;
-    if (this.input[0].value == 1) q = 1; 
-    else if (this.input[1].value == 1) q = 0; 
+    if (this.input[0].value == 1) q = 1;
+    else if (this.input[1].value == 1) q = 0;
 
     this.output[0].value = q;
     this.output[1].value = q == 1 ? 0 : 1;
@@ -2953,6 +2953,50 @@ class ROM extends Component {
       for (let i = 0; i < this.output.length; i++) {
         this.output[i].value = (content & (1 << i)) > 0 ? 1 : 0;
       }
+    }
+  }
+}
+
+class tFlipFlop extends Component {
+  constructor(name, pos) {
+    super(name, pos, 6, 1, { type: "char", text: "T-FLIP-FLOP" });
+    this.addInputPort({ side: 3, pos: 0 });
+    this.addOutputPort({ side: 1, pos: 0 });
+  }
+
+  function() {
+    if (this.output[0].value == 1) {
+      this.output[0].value = 0;
+      return;
+    }
+    if (this.input[0].value == 1) {
+      this.output[0].value = 1;
+      this.input[0].value = 0;
+      return;
+    }
+  }
+}
+
+class minGate extends Component {
+  constructor(name, pos) {
+    super(name, pos, 2, 1, { type: "char", text: "MIN" });
+    this.switchState = false;
+    this.addInputPort({ side: 3, pos: 0 });
+    this.addOutputPort({ side: 1, pos: 0 });
+  }
+
+  function() {
+    if (this.input[0].value == 1 && !this.switchState) {
+      this.output[0].value = 1;
+      this.switchState = true;
+      setTimeout(() => {
+        this.output[0].value = 0;
+        this.update();
+      });
+      return;
+    }
+    if (this.input[0].value == 0 && this.switchState) {
+      this.switchState = false;
     }
   }
 }

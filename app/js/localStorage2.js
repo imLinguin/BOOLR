@@ -94,11 +94,29 @@ function getLocalStorage() {
 }
 
 const constructors = {
-    Input,Output,NOT,AND,OR,XOR,
-    Button,Constant,Delay,Clock,Debug,
-    Beep,Counter,LED,Display,
-    Custom, TimerStart, TimerEnd,
-    ROM,DLATCH,SRLATCH
+  Input,
+  Output,
+  NOT,
+  AND,
+  OR,
+  XOR,
+  Button,
+  Constant,
+  Delay,
+  Clock,
+  Debug,
+  Beep,
+  Counter,
+  LED,
+  Display,
+  Custom,
+  TimerStart,
+  TimerEnd,
+  ROM,
+  DLATCH,
+  SRLATCH,
+  tFlipFlop,
+  minGate
 };
 
 /*
